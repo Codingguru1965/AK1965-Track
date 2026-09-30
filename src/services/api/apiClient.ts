@@ -3,10 +3,9 @@ import { Platform } from 'react-native';
 import { secureStorage } from '../storage/secureStorage';
 
 // For Android emulator: 10.0.2.2 maps to host localhost.
-// When adb reverse tcp:5000 tcp:5000 is active, localhost:5000 also works.
-// We use 10.0.2.2 as primary for Android emulator robustness.
+// For physical devices on Wi-Fi: 10.132.187.66 maps to host PC backend.
 const API_BASE_URL = Platform.select({
-  android: 'http://10.0.2.2:5000/api',
+  android: __DEV__ ? 'http://10.0.2.2:5000/api' : 'http://10.132.187.66:5000/api',
   default: 'http://localhost:5000/api',
 });
 
