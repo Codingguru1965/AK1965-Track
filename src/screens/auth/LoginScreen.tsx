@@ -19,17 +19,24 @@ import { Card } from '../../components/Card';
 
 interface LoginScreenProps {
   navigation: any;
+  route?: any;
 }
 
-export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
+export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation, route }) => {
   const { colors, typography } = useTheme();
   const insets = useSafeAreaInsets();
   const { login, continueOffline, isOnline } = useAuth();
 
-  const [email, setEmail] = useState('ankit@ak1965track.com');
-  const [password, setPassword] = useState('password123');
+  const [email, setEmail] = useState(route?.params?.prefillEmail || '');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  React.useEffect(() => {
+    if (route?.params?.prefillEmail) {
+      setEmail(route.params.prefillEmail);
+    }
+  }, [route?.params?.prefillEmail]);
 
   const handleLogin = async () => {
     if (!email.trim() || !password) {

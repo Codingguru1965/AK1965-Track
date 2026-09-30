@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../theme/ThemeContext';
@@ -64,7 +65,23 @@ export const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) =>
         weight: weightNum,
       });
 
-      if (!result.success) {
+      if (result.success) {
+        Alert.alert(
+          'Registration Successful 🎉',
+          'Your account has been created! Please log in with your credentials to continue.',
+          [
+            {
+              text: 'Go to Login',
+              onPress: () => {
+                navigation.navigate('Login', {
+                  prefillEmail: email.trim().toLowerCase(),
+                });
+              },
+            },
+          ],
+          { cancelable: false }
+        );
+      } else {
         setErrorMessage(result.message || 'Registration failed.');
       }
     } catch (err: any) {

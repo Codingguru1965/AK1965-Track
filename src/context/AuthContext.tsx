@@ -181,7 +181,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       });
 
       if (response.data?.success) {
-        const { user: apiUser, accessToken, refreshToken } = response.data;
+        const { user: apiUser } = response.data;
         const profile: UserProfile = {
           id: apiUser.id,
           username: apiUser.username,
@@ -191,14 +191,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           isOffline: false,
         };
 
-        await secureStorage.saveTokens({ accessToken, refreshToken });
-        await userStorage.saveUser(profile);
-        await userStorage.setOfflineMode(false);
+        // Cache user in SQLite repository
         UserRepository.upsert(profile);
 
-        setUser(profile);
-        setIsOfflineMode(false);
-        return { success: true };
+        // Do not auto-login; return success so user proceeds to Login screen
+        return { success: true, message: 'Account created successfully! Please log in.' };
       }
 
       return {
