@@ -2,12 +2,8 @@ import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 import { Platform } from 'react-native';
 import { secureStorage } from '../storage/secureStorage';
 
-// For Android emulator: 10.0.2.2 maps to host localhost.
-// For physical devices on Wi-Fi: 10.132.187.66 maps to host PC backend.
-const API_BASE_URL = Platform.select({
-  android: __DEV__ ? 'http://10.0.2.2:5000/api' : 'http://10.132.187.66:5000/api',
-  default: 'http://localhost:5000/api',
-});
+// Live Render Cloud Backend API
+const API_BASE_URL = 'https://ak1965-track.onrender.com/api';
 
 export const apiClient: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
