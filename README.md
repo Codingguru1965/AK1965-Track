@@ -1,97 +1,59 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🏃 AK1965 Track - Production Android Fitness & Activity Tracker
 
-# Getting Started
+[![Download Android APK](https://img.shields.io/badge/Download-Android%20APK-00E676?style=for-the-badge&logo=android&logoColor=black)](https://github.com/Codingguru1965/AK1965-Track/releases/download/v1.0.0/AK1965-Track-Release.apk)
+[![Backend Status](https://img.shields.io/badge/Backend-Live%20on%20Render-00C7B7?style=for-the-badge&logo=render&logoColor=white)](https://ak1965-track.onrender.com/api/health)
+[![Release Version](https://img.shields.io/badge/Version-v1.0.0-blue?style=for-the-badge)](https://github.com/Codingguru1965/AK1965-Track/releases/tag/v1.0.0)
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+A high-performance, offline-first Android fitness application built with **React Native**, **Native Kotlin Foreground Services**, **SQLite WAL Database**, and an **Express.js + MongoDB Atlas** cloud synchronization backend.
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 📲 Direct Mobile Download Link
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Click below on your mobile device to download and install the app directly:
 
-```sh
-# Using npm
-npm start
+👉 [**Download AK1965-Track-Release.apk (v1.0.0)**](https://github.com/Codingguru1965/AK1965-Track/releases/download/v1.0.0/AK1965-Track-Release.apk)
 
-# OR using Yarn
-yarn start
+*(Or visit the [Official Releases Page](https://github.com/Codingguru1965/AK1965-Track/releases/tag/v1.0.0))*
+
+---
+
+## ✨ Features & Architecture
+
+* **🏃 3 Activity Types**: Running, Walking, and Cycling.
+* **📱 100% Offline Tracking**: Start, record, and save activities with zero internet, mobile data, or Wi-Fi.
+* **🔒 Screen-Off & Device-Locked Tracking**: Native Android Foreground Service (`TrackingService.kt`) with wake-locks keeps tracking active without interruption even when the screen is locked.
+* **🔔 Live Notification Drawer**: Continuous updates of elapsed workout time, distance (km), and real-time pace/speed.
+* **🎯 High-Precision GPS Engine**: Dual-provider GPS (`FusedLocationProviderClient` + `LocationManager.GPS_PROVIDER` fallback) with automatic speed/jitter noise rejection.
+* **🔥 MET-Based Calories**: Accurate calorie calculations based on MET values, duration, user body weight, and exercise intensity.
+* **💾 Local SQLite Database**: Configured with WAL (`Write-Ahead Logging`) mode and relational schema for instant, lag-free offline queries.
+* **☁️ Cloud Synchronization**: Idempotent synchronization engine connects to live Render cloud backend (`https://ak1965-track.onrender.com`) and MongoDB Atlas.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend**: React Native 0.87 (Bridgeless / New Architecture), TypeScript, React Navigation
+* **Android Native Core**: Kotlin Foreground Service, SensorManager (Step Counter), LocationManager
+* **Local Storage**: SQLite WAL (`@op-engineering/op-sqlite`), Encrypted KeyStore (`react-native-keychain`)
+* **Backend API**: Node.js, Express, TypeScript, JWT with refresh tokens, Helmet, CORS
+* **Cloud Database**: MongoDB Atlas Cloud
+* **Hosting**: Render.com ([https://ak1965-track.onrender.com](https://ak1965-track.onrender.com))
+
+---
+
+## 🏃 Running Locally
+
+### Backend Server
+```bash
+cd backend
+npm install
+npm run dev
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+### React Native Android App
+```bash
+npm install
+npx react-native start
+npx react-native run-android
 ```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
