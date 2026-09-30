@@ -1,8 +1,8 @@
 # 🏃 AK1965 Track - Production Android Fitness & Activity Tracker
 
-[![Download Android APK](https://img.shields.io/badge/Download-Android%20APK-00E676?style=for-the-badge&logo=android&logoColor=black)](https://github.com/Codingguru1965/AK1965-Track/releases/download/v1.0.0/AK1965-Track-Release.apk)
+[![Download Android APK](https://img.shields.io/badge/Download-Android%20APK-00E676?style=for-the-badge&logo=android&logoColor=black)](https://github.com/Codingguru1965/AK1965-Track/releases/download/v1.0.1/AK1965-Track-Release.apk)
 [![Backend Status](https://img.shields.io/badge/Backend-Live%20on%20Render-00C7B7?style=for-the-badge&logo=render&logoColor=white)](https://ak1965-track.onrender.com/api/health)
-[![Release Version](https://img.shields.io/badge/Version-v1.0.0-blue?style=for-the-badge)](https://github.com/Codingguru1965/AK1965-Track/releases/tag/v1.0.0)
+[![Release Version](https://img.shields.io/badge/Version-v1.0.1-blue?style=for-the-badge)](https://github.com/Codingguru1965/AK1965-Track/releases/tag/v1.0.1)
 
 A high-performance, offline-first Android fitness application built with **React Native**, **Native Kotlin Foreground Services**, **SQLite WAL Database**, and an **Express.js + MongoDB Atlas** cloud synchronization backend.
 
@@ -12,9 +12,9 @@ A high-performance, offline-first Android fitness application built with **React
 
 Click below on your mobile device to download and install the app directly:
 
-👉 [**Download AK1965-Track-Release.apk (v1.0.0)**](https://github.com/Codingguru1965/AK1965-Track/releases/download/v1.0.0/AK1965-Track-Release.apk)
+👉 [**Download AK1965-Track-Release.apk (v1.0.1 Latest)**](https://github.com/Codingguru1965/AK1965-Track/releases/download/v1.0.1/AK1965-Track-Release.apk)
 
-*(Or visit the [Official Releases Page](https://github.com/Codingguru1965/AK1965-Track/releases/tag/v1.0.0))*
+*(Or visit the [Official Releases Page](https://github.com/Codingguru1965/AK1965-Track/releases/tag/v1.0.1))*
 
 ---
 
